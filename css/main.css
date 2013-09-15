@@ -1,0 +1,103 @@
+﻿    body {
+       /* width:900px; */
+       font-family: 'sans-serif','Helvetica', 'Arial', 'Book Antiqua','Microsoft Sans Serif';
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pad {
+        padding: 10px;
+    }
+    .circular-profile {
+	width: 140px;
+	height: 140px;
+    margin-left: auto;
+    margin-right:auto;
+	border-radius: 70px;
+	-webkit-border-radius: 70px;
+	-moz-border-radius: 70px;
+     background: url('../images/profile2.jpg') no-repeat;
+	}
+
+        ul.master_navigation
+    {
+        font-size: 80%;
+        text-align: center;
+        list-style: none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+    ul.master_navigation li
+    {
+        display: inline-block;
+        padding: 0 0.5%;
+    }
+
+    a
+    {
+        color: #08f;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:visited
+    {
+        color: #88f;
+    }
+
+    a:hover
+    {
+        color: #f00;
+    }
+
+    p
+    {
+        text-align: justify;
+    }
+
+    .main-nav{
+        height: 50px;
+        margin-left:auto;
+        margin-right:auto;
+        padding-top:10px;
+        margin-top:40px;
+        margin-bottom:10px;
+        width: 40%;
+        line-height:50px;
+    }
+  
+    .nav-block{
+        width: 23%; height: 50%;float:left;
+        font-size:medium;
+        line-height:25px;
+        margin-right:1%;
+        margin-left:1%;
+        -webkit-border-radius: 3px;
+	    -moz-border-radius: 70px;
+        vertical-align:middle;
+        text-align:center;
+    }
+
+    .nav-block:hover{ 
+        background:#777; 
+        cursor:pointer;
+        color:#ffffff;
+
+    }
+
+      .main-details{
+        height: 50px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:5px;
+        padding-bottom:5px;
+        width: 50%;
+        color:#9f9d9d;
+    }
+    

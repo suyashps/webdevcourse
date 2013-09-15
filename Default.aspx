@@ -11,62 +11,26 @@
 <head>
 
 <meta charset='utf-8' />
-
-<title>Demo Home Page</title>
-
-<style type="text/css">
-    ul.master_navigation
-    {
-        font-size: 100%;
-        font-weight: bold;
-        text-align: center;
-        list-style: none;
-        margin: 0.5em 0;
-        padding: 0;
+    <!--<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">-->
+    <!--<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+<title>Suyash Sonawane</title>
+<script>
+    function onAboutClick(){
+        $("#details").text("Hi there! I am maintaining this website as part of my web development course under our awesome Prof. Jose. Over the next few months I will experiment with HTML/CSS/Javascript/webservices and will write a blog about each experiemnt. Watch out!");
     }
-
-    ul.master_navigation li
-    {
-        display: inline-block;
-        padding: 0 0.5%;
+    function onBlogClick() {
+        window.open("blog/", "_blank");
     }
-
-    a
-    {
-        color: #08f;
-        font-weight: bold;
-        text-decoration: none;
+    function onProjectClick() {
+        $("#details").text("I am still decinding about the project topic. My aim is to cover certain areas of web development that I havent touched before. It should be useful for others as well. How about a combination of web services, images and javascript widgets? A webservice for applying instrgram-style image filter? Perhaps!");
     }
-
-    a:visited
-    {
-        color: #88f;
+    function onContactClick() {
+        $("#details").text("suyash-at-ccs.neu.edu");
     }
-
-    a:hover
-    {
-        color: #f00;
-    }
-
-    p
-    {
-        text-align: justify;
-    }
-</style>
-
-<style type="text/css" media="screen">
-    body {
-        width:900px;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .pad {
-        padding: 10px;
-    }
-</style>
-
+</script>
 </head>
 
 <body>
@@ -74,9 +38,6 @@
 <div class="pad">
 
 <form id="form1" runat="server">
-
-<div>
-
 <ul class="master_navigation">
     <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
     <li><a href="statistics/" target="_blank">Statistics</a></li>
@@ -90,66 +51,21 @@
     <li><a href="blog/" target="_blank">Blog</a></li>
 </ul>
 
-<hr />
-
-<p>
-    <b>This demo page shows the navigation links that should appear
-    on the home page.</b>
-    It is not necessary that these links be at the top of the page
-    but they should be displayed nicely and be easy to find.  You
-    may alter the CSS on the page to change the placement and the
-    size of the links.
-</p>
-
-<hr />
-
-<p>
-    The home page may show some interesting content but its main
-    purpose should be to <i>provide navigation</i> to other pages
-    on your site.
-</p>
-
-<hr />
-
-<p>
-    It would be helpful if your home page shows your name and a
-    photo of yourself.  This will help us to get to know you. 
-</p>
-    
-<hr />
-
-<p>
-Here is a link to the
-<a href="story/index.htm" target="_blank">Story Utility</a>
-on this site so that you may explore this tool.
-</p>
-
-<p>
-Here is a link to the
-<a href="http://www.northeastern.edu/rasala/webstories.htm"
-        target="_blank">Web Development Stories</a>
-so that you may see a good collection of online documentation.
-</p>
-
-<p>
-This provides a model for using stories for documentation and
-for collections of experiments.
-</p>
-
-<hr />
-
-<p>
-None of the hints given above needs to be on your home page
-downstream but it is convenient to have them here at startup.
-</p>
-
-<hr />
-
-</div>
-
+<br />
+    <header>
+            <div class="circular-profile"></div>
+            <h3>Suyash Sonawane</h3>
+        <nav class="main-nav">
+            <div class="nav-block" onclick="onAboutClick();">About</div>
+            <div class="nav-block" onclick="onBlogClick();">Blog</div>
+            <div class="nav-block" onclick="onProjectClick();">Project</div>
+            <div class="nav-block" onclick="onContactClick();">Contact</div>
+        </nav>
+    </header>
+    <div class="main-details">
+            <div id="details"></div>
+        </div>
 </form>
-
 </div>
-
 </body>
 </html>
