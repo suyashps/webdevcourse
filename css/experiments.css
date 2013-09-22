@@ -1,0 +1,96 @@
+﻿body {
+}
+.section{
+    width:600px;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top:25px;
+    margin-bottom:25px;
+    display:block;
+    text-align:center;
+}
+#section1 {
+    background:#ffd800;
+}
+#section2 {
+    background:#ff6a00;
+    border:solid;
+    border-color:#b6ff00;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+}
+
+#section1 a{
+    border-width: 5px;
+    border-color:black;
+    margin-bottom:10px;
+}
+#section2 a{
+    border-width: 5px;
+    border-color:#ff0000;
+    margin-bottom:10px;
+}
+
+#section1 h1{
+    font-family: 'Arial';
+}
+
+#section1 h1{
+    font-family: 'Arial';
+}
+
+#section1 h1:hover{
+    color:#d5dff2;
+}
+
+#section1:hover{
+    color:#808080;
+}
+
+#section2 h1{
+    font-family: 'sans-serif';
+}
+#section2 h1:hover{
+    color:#b6ff00;
+}
+
+#section3 .circular-image {
+	width: 200px;
+	height: 200px;
+    margin-left: auto;
+    margin-right:auto;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	}
+
+.rounded-area {
+	width: 200px;
+	height: 200px;
+    border:solid;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:20px;
+    margin-bottom:20px;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+     background-color:#a2ce35;
+     text-align:center;
+     line-height:100px;
+     font-family:Arial,sans-serif;
+	}
+.rounded-area img {
+	width:200px;
+	height:inherit;
+    position:absolute;
+    margin-left: auto;
+    margin-right:auto;
+    display:block;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+     background:url('../images/jumping.jpg') no-repeat;
+	}

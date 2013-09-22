@@ -19,17 +19,37 @@
 <title>Suyash Sonawane</title>
 <script>
     function onAboutClick(){
-        $("#details").text("Hi there! I am maintaining this website as part of my web development course under our awesome Prof. Jose. Over the next few months I will experiment with HTML/CSS/Javascript/webservices and will write a blog about each experiemnt. Watch out!");
+        $("#details").text("Hi there! I am maintaining this website as part of my web development course under our awesome Prof. Jose. Over the next few months I will experiment with HTML/CSS/Javascript/webservices and will write a blog about each experiment. Watch out!");
+        _gaq.push(['_trackEvent', 'clicks', 'about']);
     }
     function onBlogClick() {
         window.open("blog/", "_blank");
+        _gaq.push(['_trackEvent', 'clicks', 'blog']);
+    }
+    function onExpClick() {
+        window.open("experiments/", "_blank");
+        _gaq.push(['_trackEvent', 'clicks', 'experiments']);
     }
     function onProjectClick() {
-        $("#details").text("I am still decinding about the project topic. My aim is to cover certain areas of web development that I havent touched before. It should be useful for others as well. How about a combination of web services, images and javascript widgets? A webservice for applying instrgram-style image filter? Perhaps!");
+        $("#details").text("I am still decinding about the project topic. My aim is to cover certain areas of web development that I haven't touched before. I will try to make my code as reusable as possible. How about a combination of web services, images and javascript widgets? A webservice for applying instagram-style image filter? Perhaps!");
+        _gaq.push(['_trackEvent', 'clicks', 'project']);
     }
     function onContactClick() {
-        $("#details").text("suyash-at-ccs.neu.edu");
+        $("#details").html("<p style='text-align:center;'>suyash-at-ccs.neu.edu</p><p style='text-align:center;'><a href='SUYASH_SONAWANE_2013_v2.6.pdf'>Resume</a>");
+        _gaq.push(['_trackEvent', 'clicks', 'contact']);
     }
+</script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-44111915-1', 'neu.edu');
+        ga('send', 'pageview');
+
 </script>
 </head>
 
@@ -58,6 +78,7 @@
         <nav class="main-nav">
             <div class="nav-block" onclick="onAboutClick();">About</div>
             <div class="nav-block" onclick="onBlogClick();">Blog</div>
+            <!--<div class="nav-block" onclick="onExpClick();">Experiments</div>-->
             <div class="nav-block" onclick="onProjectClick();">Project</div>
             <div class="nav-block" onclick="onContactClick();">Contact</div>
         </nav>
