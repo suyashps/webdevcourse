@@ -70,16 +70,17 @@
     }
   
     .nav-block{
-        width: 23%; height: 50%;float:left;
+        width: 18%; height: 50%;float:left;
         font-size:medium;
         line-height:25px;
         margin-right:1%;
         margin-left:1%;
         -webkit-border-radius: 3px;
-	    -moz-border-radius: 70px;
+	    -moz-border-radius: 3px;
         vertical-align:middle;
         text-align:center;
     }
+
 
     .nav-block:hover{ 
         background:#777; 
@@ -101,3 +102,49 @@
         color:#9f9d9d;
     }
     
+      .resume{
+        width: 23%; height: 50%;
+        font-size:medium;
+        line-height:25px;
+        margin-right:auto;
+        margin-left:auto;
+        -webkit-border-radius: 3px;
+	    -moz-border-radius: 70px;
+        vertical-align:middle;
+        text-align:center;
+        text-decoration:underline;
+    }
+
+       .resume:hover{ 
+        color:#08f; 
+        cursor:pointer;
+        //color:#ffffff;
+
+    }
+
+.social-profile-footer {
+    width: 15%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
+    margin-bottom:10px;
+    line-height:48px;
+    display:block;
+}
+.social-icon-holder {
+     width: 23%;
+     float:left;
+        margin-right:5%;
+        margin-left:5%;
+        -webkit-border-radius: 3px;
+	    -moz-border-radius: 3px;
+}
+.social-icon-holder img {
+    width:40px;
+    box-shadow: 1px 1px 1px #888888 ;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+.social-icon-holder img:hover {
+    cursor:pointer;   
+}

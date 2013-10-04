@@ -17,40 +17,84 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link href="css/main.css" rel="stylesheet">
 <title>Suyash Sonawane</title>
+  <script>
+   /*   (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+              (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-44111915-1', 'neu.edu');
+      ga('send', 'pageview');
+      */
+
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-44111915-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function () {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+
+</script>
 <script>
-    function onAboutClick(){
-        $("#details").text("Hi there! I am maintaining this website as part of my web development course under our awesome Prof. Jose. Over the next few months I will experiment with HTML/CSS/Javascript/webservices and will write a blog about each experiment. Watch out!");
-        _gaq.push(['_trackEvent', 'clicks', 'about']);
-    }
-    function onBlogClick() {
-        window.open("blog/", "_blank");
-        _gaq.push(['_trackEvent', 'clicks', 'blog']);
-    }
-    function onExpClick() {
-        window.open("experiments/", "_blank");
-        _gaq.push(['_trackEvent', 'clicks', 'experiments']);
-    }
-    function onProjectClick() {
-        $("#details").text("I am still decinding about the project topic. My aim is to cover certain areas of web development that I haven't touched before. I will try to make my code as reusable as possible. How about a combination of web services, images and javascript widgets? A webservice for applying instagram-style image filter? Perhaps!");
-        _gaq.push(['_trackEvent', 'clicks', 'project']);
-    }
-    function onContactClick() {
-        $("#details").html("<p style='text-align:center;'>suyash-at-ccs.neu.edu</p><p style='text-align:center;'><a href='SUYASH_SONAWANE_2013_v2.6.pdf'>Resume</a>");
-        _gaq.push(['_trackEvent', 'clicks', 'contact']);
-    }
-</script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    $(document).ready(function () {
 
-        ga('create', 'UA-44111915-1', 'neu.edu');
-        ga('send', 'pageview');
+        $("#aboutClick").click(function () {
+            $("#details").text("Hi there! I am maintaining this website as part of my web development course under our awesome Prof. Jose. Over the next few months I will experiment with HTML/CSS/Javascript/webservices and will write a blog about each experiment. Watch out!");
+            _gaq.push(['_trackEvent', 'clicks', 'about']);
+        });
+        $("#blogClick").click(function () {
+            window.open("blog/", "_blank");
+            _gaq.push(['_trackEvent', 'clicks', 'blog']);
+        });
+        $("#expClick").click(function () {
+            window.open("story/", "_blank");
+            _gaq.push(['_trackEvent', 'clicks', 'experiments']);
+        });
+        $("#projectClick").click(function () {
+            $("#details").text("I am still decinding about the project topic. My aim is to cover certain areas of web development that I haven't touched before. I will try to make my code as reusable as possible. How about a combination of web services, images and javascript widgets? A webservice for applying instagram-style image filter? Perhaps!");
+            _gaq.push(['_trackEvent', 'clicks', 'project']);
+        });
+        $("#contactClick").click(function () {
+            $("#details").html("<p style='text-align:center;'>suyash-at-ccs.neu.edu</p><div class='resume' style='text-align:center;' onclick='resumeClicked();'>Resume</div>");
+            _gaq.push(['_trackEvent', 'clicks', 'contact']);
+        });
+        $("#linkedin-icon").click(function () {
+            window.open("http://www.linkedin.com/in/suyashsonawane/", "_blank");
+            _gaq.push(['_trackEvent', 'clicks', 'linkedin']);
+        });
+        $("#flickr-icon").click(function () {
+            window.open("http://www.flickr.com/photos/colours_of_life/sets/", "_blank");
+            _gaq.push(['_trackEvent', 'clicks', 'flickr']);
+        });
+        $("#instagram-icon").click(function () {
+            window.open("http://instagram.com/suyashps", "_blank");
+            _gaq.push(['_trackEvent', 'clicks', 'instagram']);
+        });
 
+        $('.social-icon-holder img').mouseenter(function (e) {
+            $(this).animate({ height: '48', left: '0', top: '0', width: '48' }, 100);
+            //$(this).fadeIn(200);
+        }).mouseleave(function (e) {
+            $(this).animate({ height: '40', left: '0', top: '0', width: '40' }, 100);
+            //$(this).children('a').fadeOut(200);
+        });
+
+        
+    });
+
+    function resumeClicked() {
+        window.open("SUYASH_SONAWANE_2013_v2.6.pdf", "_blank");
+        _gaq.push(['_trackEvent', 'clicks', 'resume']);
+    };
 </script>
+  
 </head>
 
 <body>
@@ -58,6 +102,7 @@
 <div class="pad">
 
 <form id="form1" runat="server">
+    </form>
 <ul class="master_navigation">
     <li><a href="sitestatistics/" target="_blank">SiteStatistics</a></li>
     <li><a href="statistics/" target="_blank">Statistics</a></li>
@@ -76,17 +121,29 @@
             <div class="circular-profile"></div>
             <h3>Suyash Sonawane</h3>
         <nav class="main-nav">
-            <div class="nav-block" onclick="onAboutClick();">About</div>
-            <div class="nav-block" onclick="onBlogClick();">Blog</div>
-            <!--<div class="nav-block" onclick="onExpClick();">Experiments</div>-->
-            <div class="nav-block" onclick="onProjectClick();">Project</div>
-            <div class="nav-block" onclick="onContactClick();">Contact</div>
+            <div id="aboutClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'about']);">About</div>
+            <div id="blogClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'blog']);">Blog</div>
+            <div id="expClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'experiments']);">Experiments</div>
+            <div id="projectClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'project']);">Project</div>
+            <div id="contactClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'contact']);">Contact</div>
         </nav>
     </header>
     <div class="main-details">
             <div id="details"></div>
         </div>
-</form>
+    <footer>
+        <div class="social-profile-footer">
+            <div id="linkedin-icon" class="social-icon-holder">
+                <img src="images/webicon-linkedin.png" />
+            </div>
+            <div id="flickr-icon" class="social-icon-holder">
+                <img src="images/webicon-flickr.png" />
+            </div>
+            <div id="instagram-icon" class="social-icon-holder">
+                <img src="images/webicon-instagram.png" />
+            </div>
+            </div>
+    </footer>
 </div>
 </body>
 </html>
