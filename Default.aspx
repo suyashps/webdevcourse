@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-
+<meta name="viewport" content="width=device-width, maximum-scale=1">
 <meta charset='utf-8' />
     <!--<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">-->
     <!--<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">-->
@@ -58,7 +58,8 @@
             _gaq.push(['_trackEvent', 'clicks', 'experiments']);
         });
         $("#projectClick").click(function () {
-            $("#details").text("I am still decinding about the project topic. My aim is to cover certain areas of web development that I haven't touched before. I will try to make my code as reusable as possible. How about a combination of web services, images and javascript widgets? A webservice for applying instagram-style image filter? Perhaps!");
+            $("#details").text("I am developing a project idea centered around grabbing images from popular web services and showing them in some meaningful way to visting user. More info soon.");
+            //Through this class project I am planning to cover certain areas of web development that I haven't touched before. I will try to make my code as reusable as possible. In the coming days I will explore the Instagram API and try out ways to display images on my web page. More coming soon!");
             _gaq.push(['_trackEvent', 'clicks', 'project']);
         });
         $("#contactClick").click(function () {
@@ -78,13 +79,20 @@
             _gaq.push(['_trackEvent', 'clicks', 'instagram']);
         });
 
-        $('.social-icon-holder img').mouseenter(function (e) {
-            $(this).animate({ height: '48', left: '0', top: '0', width: '48' }, 100);
-            //$(this).fadeIn(200);
-        }).mouseleave(function (e) {
-            $(this).animate({ height: '40', left: '0', top: '0', width: '40' }, 100);
-            //$(this).children('a').fadeOut(200);
-        });
+        if( !navigator.userAgent.match(/Android/i) &&
+            !navigator.userAgent.match(/iPhone/i) &&
+            !navigator.userAgent.match(/iOs/i) ){
+        //show hover animation
+            $('.social-icon-holder img').mouseenter(function (e) {
+                $(this).animate({ height: '45', left: '0', top: '0', width: '45' }, 100);
+                //$(this).fadeIn(200);
+            }).mouseleave(function (e) {
+                $(this).animate({ height: '40', left: '0', top: '0', width: '40' }, 100);
+                //$(this).children('a').fadeOut(200);
+            });
+        }
+
+        
 
         
     });
@@ -121,11 +129,11 @@
             <div class="circular-profile"></div>
             <h3>Suyash Sonawane</h3>
         <nav class="main-nav">
-            <div id="aboutClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'about']);">About</div>
-            <div id="blogClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'blog']);">Blog</div>
-            <div id="expClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'experiments']);">Experiments</div>
-            <div id="projectClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'project']);">Project</div>
-            <div id="contactClick" class="nav-block" onclick="_gaq.push(['_trackEvent', 'clicks', 'contact']);">Contact</div>
+            <div id="aboutClick" class="nav-block" style="background-color: #009fff;" onclick="_gaq.push(['_trackEvent', 'clicks', 'about']);">About</div>
+            <div id="blogClick" class="nav-block" style="background-color: #FF3F00;" onclick="_gaq.push(['_trackEvent', 'clicks', 'blog']);">Blog</div>
+            <div id="expClick" class="nav-block" style="background-color: #FFBF00;" onclick="_gaq.push(['_trackEvent', 'clicks', 'experiments']);">Experiments</div>
+            <div id="projectClick" class="nav-block" style="background-color: #029F00;" onclick="_gaq.push(['_trackEvent', 'clicks', 'project']);">Project</div>
+            <div id="contactClick" class="nav-block" style="background-color: #07519A;" onclick="_gaq.push(['_trackEvent', 'clicks', 'contact']);">Contact</div>
         </nav>
     </header>
     <div class="main-details">

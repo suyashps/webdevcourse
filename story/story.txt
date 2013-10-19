@@ -1,3 +1,4 @@
 ﻿storyfiles/introduction.htm     Introduction
 storyfiles/exp_1_css.html       CSS Experiments
 storyfiles/exp_2_jquery.html    JQuery Experiments
+storyfiles/exp_3_responsive.html Responsive CSS

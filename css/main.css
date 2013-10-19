@@ -60,21 +60,25 @@
 
     .main-nav{
         height: 50px;
+         width: 500px;
         margin-left:auto;
         margin-right:auto;
         padding-top:10px;
-        margin-top:40px;
+        margin-top:20px;
         margin-bottom:10px;
-        width: 40%;
+       
         line-height:50px;
     }
-  
+
     .nav-block{
-        width: 18%; height: 50%;float:left;
-        font-size:medium;
+        width: 90px; height: 50%;float:left;
+        min-width:88px;
+        font-size:small;
         line-height:25px;
-        margin-right:1%;
-        margin-left:1%;
+        margin-top:5px;
+        margin-bottom:5px;
+        margin-right:5px;
+        margin-left:5px;
         -webkit-border-radius: 3px;
 	    -moz-border-radius: 3px;
         vertical-align:middle;
@@ -83,7 +87,7 @@
 
 
     .nav-block:hover{ 
-        background:#777; 
+        background-color:#333333; 
         cursor:pointer;
         color:#ffffff;
 
@@ -92,6 +96,9 @@
       .main-details{
         height: 50px;
         margin-left:auto;
+        min-width:140px;
+        font-size:small;
+        position:relative;
         margin-right:auto;
         margin-bottom:10px;
         padding-left:10px;
@@ -118,12 +125,11 @@
        .resume:hover{ 
         color:#08f; 
         cursor:pointer;
-        //color:#ffffff;
 
     }
 
 .social-profile-footer {
-    width: 15%;
+    width: 150px;
     margin-left:auto;
     margin-right:auto;
     margin-top:50px;
@@ -132,15 +138,163 @@
     display:block;
 }
 .social-icon-holder {
-     width: 23%;
+     width: 40px;
      float:left;
-        margin-right:5%;
-        margin-left:5%;
-        -webkit-border-radius: 3px;
-	    -moz-border-radius: 3px;
+     margin-top:5px;
+     margin-bottom:5px;
+     margin-right:5px;
+     margin-left:5px;
+     -webkit-border-radius: 3px;
+	 -moz-border-radius: 3px;
+     animation:none
 }
 .social-icon-holder img {
     width:40px;
+    margin-right:3px;
+    margin-left:3px;
+    box-shadow: 1px 1px 1px #888888 ;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+/*
+.social-icon-holder {
+     width: 15%;
+     float:left;
+     margin-top:5px;
+     margin-bottom:5px;
+     margin-right:5%;
+     margin-left:5%;
+     -webkit-border-radius: 3px;
+	 -moz-border-radius: 3px;
+}
+.social-icon-holder img {
+    width:40px;
+    margin-right:3px;
+    margin-left:3px;
+    box-shadow: 1px 1px 1px #888888 ;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}*/
+.social-icon-holder img:hover {
+    cursor:pointer;   
+}
+
+/*************************************Small**Screen************************************************/
+@media screen and (max-device-width: 568px) { 
+    ul.master_navigation
+    {
+        display:none;
+    }
+
+    ul.master_navigation li
+    {
+        display:none;
+    }
+    }
+@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
+@media (max-device-height : 568px) 
+   and (max-device-width : 320px) 
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation : portrait) {
+     ul.master_navigation
+    {
+        display:none;
+    }
+
+    ul.master_navigation li
+    {
+        display:none;
+    }
+
+	 .main-nav{
+        width:120px;
+        height:160px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:10px;
+        margin-bottom:10px;
+        /**line-height:50px;*/
+    }
+    .nav-block{
+       width: 120px;
+       height: 25px;
+        font-size:medium;
+        margin-top:5px;
+        margin-bottom:5px;
+        margin-right:auto;
+        margin-left:auto;
+        -webkit-border-radius: 3px;
+	    -moz-border-radius: 3px;
+        vertical-align:middle;
+        text-align:center;
+    }
+    .nav-block:hover{ 
+        background-color:#333333; 
+        cursor:pointer;
+        color:#ffffff;
+
+    }
+    .main-details{
+        height: 140px;
+        margin-left:auto;
+        margin-right:auto;
+        width:200px;
+        font-size:small;
+        
+        margin-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:5px;
+        padding-bottom:5px;
+        color:#9f9d9d;
+    }
+    
+      .resume{
+        width: 23%; height: 50%;
+        font-size:medium;
+        line-height:25px;
+        margin-right:auto;
+        margin-left:auto;
+        -webkit-border-radius: 3px;
+	    -moz-border-radius: 70px;
+        vertical-align:middle;
+        text-align:center;
+        text-decoration:underline;
+    }
+
+       .resume:hover{ 
+        color:#08f; 
+        cursor:pointer;
+
+    }
+
+
+.social-profile-footer {
+    width: 150px;
+    height: 50px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.social-icon-holder {
+     width: 40px;
+     float:left;
+     margin-top:5px;
+     margin-bottom:5px;
+     margin-right:5px;
+     margin-left:5px;
+     -webkit-border-radius: 3px;
+	 -moz-border-radius: 3px;
+     animation:none
+}
+.social-icon-holder img {
+    width:40px;
+    margin-right:3px;
+    margin-left:3px;
     box-shadow: 1px 1px 1px #888888 ;
     -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -148,3 +302,8 @@
 .social-icon-holder img:hover {
     cursor:pointer;   
 }
+
+  
+ 
+}
+/*/////////////////////////////////Small/////Screen////////////////////////////////////////////////////*/
