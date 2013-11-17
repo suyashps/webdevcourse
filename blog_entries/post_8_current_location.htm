@@ -1,0 +1,20 @@
+<h3>Current location using web service</h3>
+<p>
+    After successfully trying the Instagram API next step for me was to start exploring its location specific API. As I began experimenting with that API 
+    I realized that before I could fetch images based on location I needed two things:
+    </p>
+<ol>
+    <li>An elegant way to get user's current location</li>
+    <li>A way to translate current location (latitude, longitude) in Instagram compatible format </li>
+</ol>
+<p>
+    I explored various options for 1. Simplest was to rely on JavaScript's geolocation API and prompt user for their user.
+    This is the most direct method as it gives your geo coordinates directly but somehow I did not like it. It is very intrusive and not user friendly.
+    I have seen some websites knowing about your approximate location as soon as you land on their page. Since I do not need user's precise location I realized that I need 
+    a non-intrusive solution. Then I came across <a href="http://freegeoip.net/json/">this webservice</a> which magically provides good enough infomration without even waiting for user.
+    This is really nice approxmation of user's location to begin with.
+    </p>
+<p>
+    Please check the experiment page for a demo. Now I can pass on these coordinates to Instagram's location search API which I am experimenting with. Unfortunately it needs user authentication with instagram before I could proceed.
+    So I need to setup instagram authentication before I could process the location I receive via this web service.
+</p>

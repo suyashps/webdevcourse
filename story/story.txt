@@ -2,3 +2,5 @@
 storyfiles/exp_1_css.html       CSS Experiments
 storyfiles/exp_2_jquery.html    JQuery Experiments
 storyfiles/exp_3_responsive.html Responsive CSS
+storyfiles/exp_4_5_instagram_API_test1.html Instagram API Demo
+storyfiles/exp_6_curr_location.html Current location from web service

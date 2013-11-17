@@ -1,9 +1,5 @@
 ﻿<%@ Page Language="C#" %>
 
-<script runat="server">
-    <%-- This demo page has no server side script --%>
-</script>
-
 <!DOCTYPE html>
 
 <html lang="en">
