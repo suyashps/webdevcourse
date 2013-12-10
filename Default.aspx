@@ -54,7 +54,11 @@
             _gaq.push(['_trackEvent', 'clicks', 'experiments']);
         });
         $("#projectClick").click(function () {
-            $("#details").text("I am developing a project idea centered around grabbing images from popular web services and showing them in some meaningful way to visting user. More info soon.");
+            $("#details").html("Ever wondered how to know whats been clicking around where you are right now?" +
+                " I am working on a project that helps you discover latest images clicked around you." +
+                " My latest experiments are gradually developing into an app based on Instagram. See it developing " +
+                "<a href='project/whatsclickin'>here</a>. " +
+                "Please also see Experiments section for earlier experiements.");
             //Through this class project I am planning to cover certain areas of web development that I haven't touched before. I will try to make my code as reusable as possible. In the coming days I will explore the Instagram API and try out ways to display images on my web page. More coming soon!");
             _gaq.push(['_trackEvent', 'clicks', 'project']);
         });
@@ -147,6 +151,9 @@
                 <img src="images/webicon-instagram.png" />
             </div>
             </div>
+<div>
+<iframe src="http://snapwidget.com/sc/?u=c3V5YXNocHN8aW58MTAwfDN8M3x8eWVzfDIwfGZhZGVJbnxvblN0YXJ0fHllcw==&v=11213" title="Instagram Widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:700px; height:100px"></iframe>
+    </div>
     </footer>
 </div>
 </body>
