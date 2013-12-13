@@ -22,7 +22,7 @@ namespace edu.neu.ccis.rasala
          * you wish to process a web response in C# code
          * on the server.
          */
-        public static HttpWebResponse GetResponse(string url)
+        public static HttpWebResponse GetResponse(string type, string url)
         {
             HttpWebResponse response = null;
 
@@ -37,13 +37,34 @@ namespace edu.neu.ccis.rasala
                     WebRequest.Create(uri) as HttpWebRequest;
 
                 request.Date = DateTime.Now;
-
-                response =
-                    request.GetResponse() as HttpWebResponse;
+                if (type.ToUpper() == "POST")
+                {
+                   
+                    request.Method = "POST";                   
+                    string postData = "This is a test that posts this string to a Web server.";
+                    byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(postData);
+                    // Set the ContentType property of the WebRequest.
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    // Set the ContentLength property of the WebRequest.
+                    request.ContentLength = byteArray.Length;
+                    // Get the request stream.
+                    Stream dataStream = request.GetRequestStream();
+                    // Write the data to the request stream.
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                    // Close the Stream object.
+                    dataStream.Close();
+                    // Get the response.
+                    response = request.GetResponse() as HttpWebResponse;
+                }
+                else
+                {
+                    request.Method = type.ToUpper();
+                    response = request.GetResponse() as HttpWebResponse;
+                }
             }
-            catch
+            catch(Exception E)
             {
-
+                Console.Write(E);
             }
 
             return response;
@@ -62,9 +83,9 @@ namespace edu.neu.ccis.rasala
          * you wish to process a web response in C# code
          * on the server.
          */
-        public static string GetResponseContent(string url)
+        public static string GetResponseContent(string type, string url)
         {
-            HttpWebResponse response = GetResponse(url);
+            HttpWebResponse response = GetResponse(type, url);
 
             if (response == null)
                 return "";
@@ -81,8 +102,9 @@ namespace edu.neu.ccis.rasala
                     }
                 }
             }
-            catch
+            catch (Exception E)
             {
+                Console.Write(E);
                 return "";
             }
 
@@ -178,7 +200,7 @@ namespace edu.neu.ccis.rasala
          * The message is any additional information  to provide.
          */
         void ProcessRequestError
-            (HttpContext context, string embeddedUrl, string message)
+            (HttpContext context, string embeddedUrl, string embeddedType, string message)
         {
             context.Response.Write("<!DOCTYPE html>\n");
             context.Response.Write("<html>\n");
@@ -200,6 +222,21 @@ namespace edu.neu.ccis.rasala
                 context.Response.Write("'http://net4.ccs.neu.edu/home/rasala/simpleproxy/'");
                 context.Response.Write(" target='_blank' style='text-decoration: none'>here</a>.</h2>\n");
             }
+            if (StringTools.IsTrivial(embeddedType))
+            {
+                context.Response.Write("<h2>Needs an embedded Type in the query string</h2>\n");
+
+                context.Response.Write("<pre style='color: blue; font-size: 150%; margin-left: 5%'><b>");
+                context.Response.Write("?type=\"...\"");
+                context.Response.Write("</b></pre>\n");
+
+                context.Response.Write("<h2>where ... is the type embedded between the delimiters.</h2>");
+                context.Response.Write("<h2>The delimiters may be single quote, double quote, or vertical bar.</h2>");
+
+                context.Response.Write("<h2>Documentation is <a href=");
+                context.Response.Write("'http://net4.ccs.neu.edu/home/rasala/simpleproxy/'");
+                context.Response.Write(" target='_blank' style='text-decoration: none'>here</a>.</h2>\n");
+            }
             else
             {
                 context.Response.Write("<h2>Embedded Url:</h2>\n");
@@ -208,6 +245,14 @@ namespace edu.neu.ccis.rasala
 
                 context.Response.Write("<pre style='color: blue; font-size: 150%; margin-left: 5%'><b>");
                 context.Response.Write(embeddedUrl);
+                context.Response.Write("</b></pre>\n");
+
+                context.Response.Write("<h2>Embedded Trype:</h2>\n");
+
+                embeddedType = StringTools.HtmlEncode(embeddedType);
+
+                context.Response.Write("<pre style='color: blue; font-size: 150%; margin-left: 5%'><b>");
+                context.Response.Write(embeddedType);
                 context.Response.Write("</b></pre>\n");
             }
 
@@ -229,17 +274,19 @@ namespace edu.neu.ccis.rasala
         public void ProcessRequest(HttpContext context)
         {
             string url = context.Request.Url.OriginalString;
+            
 
             string embeddedUrl = GetEmbeddedParameter(url, "url=", true);
+            string embeddedType = GetEmbeddedParameter(url, "type=", true);
 
             HttpWebResponse response = null;
 
-            if (!StringTools.IsTrivial(embeddedUrl))
-                response = GetResponse(embeddedUrl);
+            if (!StringTools.IsTrivial(embeddedUrl) && !StringTools.IsTrivial(embeddedType))
+                response = GetResponse(embeddedType, embeddedUrl);
 
             if (response == null)
             {
-                ProcessRequestError(context, embeddedUrl, "");
+                ProcessRequestError(context, embeddedUrl, embeddedType,"");
                 return;
             }
 
@@ -249,7 +296,7 @@ namespace edu.neu.ccis.rasala
 
             if ((status < 200) || (status > 299))
             {
-                ProcessRequestError(context, embeddedUrl, "Status = " + status);
+                ProcessRequestError(context, embeddedUrl, embeddedType, "Status = " + status);
             }
            
 
@@ -262,7 +309,10 @@ namespace edu.neu.ccis.rasala
                     Uri uri = new Uri(embeddedUrl);
                     host = uri.Host;
                 }
-                catch { }
+                catch (Exception E)
+                {
+                    Console.Write(E);
+                }
             }
 
             if (!StringTools.IsTrivial(host))
@@ -305,9 +355,10 @@ namespace edu.neu.ccis.rasala
                     }
                 }
             }
-            catch
+            catch (Exception E)
             {
-                ProcessRequestError(context, embeddedUrl, "Error in reading Url content");
+                Console.Write(E);
+                ProcessRequestError(context, embeddedUrl,embeddedType, "Error in reading Url content");
             }
         }
 
